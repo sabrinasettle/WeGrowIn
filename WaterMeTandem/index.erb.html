@@ -8,9 +8,16 @@
     <div class="calendar" id="calendar-app">
         <div class="calendar--day-view" id="day-view">
             <h1>Hi!</h1>
-            <p><%= cal_start %></p>
-            <p><%= cal_end %></p>
+            <p><%= $startDate %></p>
+            <p><%= $endDate %></p>
+            <% $numOfWeeks.times do |numOfWeeks| %>
+                <p>Im a week</p>
+                <% 7.times do |numOfWeeks| %> 
+                    <p>Im a day</p>
+                    
+                <% end %>
+            <% end %> 
         </div>
     </div>
-
+   
 </body>

@@ -1,103 +1,53 @@
 #!/usr/bin/env ruby
 
-# data_hash = JSON.parse(File.read('file-name-to-be-read.json'))
-
-# Then just map over the data!
-
-# reviews = data_hash['sentiment_analysis'].first
-# reviews.map do |sentiment, reviews|
-#   puts "#{sentiment} #{reviews.map { |review| review['score'] }}"
-# end
-
 # https://stackoverflow.com/questions/25489804/creating-an-html-file-with-ruby
+# https://stackoverflow.com/questions/4654457/how-to-add-10-days-to-current-time-in-rails
+# https://stackoverflow.com/questions/1489826/how-to-get-the-number-of-days-in-a-given-month-in-ruby-accounting-for-year
 
 
 
 require 'rubygems'
 require 'pp'
 require 'date'
+require 'time'
 require 'json'
 require 'active_support'
 require 'erb'
 
 #starts an internal server
-require_relative 'server'
+# require_relative 'server'
 
+require_relative 'calender'
 
+p $duration
 
-
-#all watered on the Monday at start
-#No plants are watered on Saturday[6] or on Sunday[7] (.cwday)
-cal_start = Date.new(2019, 12, 16)
-cal_end = Date.new(2020, 1, 20)
-
+#Parse the json file into a ruby object
 info_object = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'))
 
 #get rid of later
 pp info_object
 
-if (info_object)
-    puts "yeah I exisit"
-end
-
-str = "14 days"
 
 
-def duration_to_days(string)
-  items = string.split(' ')
-  ret = items.shift.to_i
-  # items.each_with_index do |item, index|
-    # ret += item.to_i * 60 ** (index + 1)
-  # end
-  ret
-end
-
-
-puts duration_to_days(str)
-i = duration_to_days(str);
-
-
-t = Time.now
-puts t.day
-puts t.month
-puts t.hour
-
-
-#days from the current day the converted str
-# puts i.day.from_now
-# puts today >> 5
-# Date.today.prev_day
-
-
-
-# class Launcher
-# end
-
-# launcher = Launcher.new
-
-# def initialize cal_app 
-#     @call_app = cal_app
-#   end
-
-
-
-
-
-
-
-
+#Rendering the partial in a regular html file
 template = File.read('./index.erb.html')
-if (template)
-    puts "hey"
-end
+
 result = ERB.new(template).result(binding)
-if (result)
-    puts "hey hey"
-end
 
 File.open('public_html/index.html', 'w+') do |f|
   f.write result
 end
+
+
+
+
+
+
+
+
+
+
+
 
 
 
