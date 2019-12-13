@@ -25,10 +25,7 @@ $Jan = Time.days_in_month(1, 2020)
 $Feb = Time.days_in_month(2, 2020)
 $Mar = Time.days_in_month(3, 2020)
 
-
 $currentDay = DateTime.now
-
-
 
 # $startDate + 7.days
 
@@ -46,9 +43,6 @@ y = t.year
 d = t.end_of_month.day
 puts day: d
 
-# number_of_days = Date.civil(y, m, -1).day
-
-# puts lenDays.to_i
 
 #I NEED THIS TO DO THE THINGS
 # str = "14 days"
@@ -106,6 +100,10 @@ def fillArrays(array, int)
   end
 end
 
+def ifWeekend()
+
+end
+
 # not gonna worry about the 1 week waterings or the 2 week ones as they wont fall on a weekend
 def ftDays(int)
   # for or while loop that while the duration of time in the main project 
@@ -123,12 +121,14 @@ end
 
 def threeDays(int)
   wateringDayThr = []
+  ifWeekend()
 end
 
 
 #these may fall on a weekend, so I can do my if d.cwday == 6 || 7 or d.saturday? d.sunday? 
 def twoDays(int)
   wateringDayTw = []
+  ifWeekend()
 end
 
 
