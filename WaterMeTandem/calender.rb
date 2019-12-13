@@ -1,10 +1,13 @@
 
+$info_objects = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'), object_class: OpenStruct)
 
-$Dec = [*16..31]
-$Jan = [*1..31]
-$Feb = [*1..29]
-$Mar = [*1..9]
-$numOfDays = [*1..7]
+#get rid of later
+# pp $info_objects[1]
+
+
+
+
+#the array is nested
 
 
 #all watered on the Monday at start
@@ -17,61 +20,17 @@ days.class
 $duration = days.to_i
 $numOfWeeks = $duration / 7
 
+$Dec = Time.days_in_month(12, 2019)
+$Jan = Time.days_in_month(1, 2020)
+$Feb = Time.days_in_month(2, 2020)
+$Mar = Time.days_in_month(3, 2020)
 
-puts $duration
-puts $numOfWeeks
 
 $currentDay = DateTime.now
 
-# COMMON_YEAR_DAYS_IN_MONTH = [nil, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-# def days_in_month(month, year = Time.now.year)
-#    return 29 if month == 2 && Date.gregorian_leap?(year)
-#    COMMON_YEAR_DAYS_IN_MONTH[month]
-# end
 
 
-
-
-
-
-t = Time.now
-d = t.day
-m = t.month
-y = t.year
-
-
-# days = Date.new(t.end_of_month.day)
-# puts days
-
-# puts Time.days_in_month(Time.now.month, Time.now.year)
-# number_of_days = Date.civil(y, m, -1).day
-
-# puts lenDays.to_i
-
-#I NEED THIS TO DO THE THINGS
-str = "14 days"
-
-# info_object({:water_after =>})
-
-def duration_to_days(string)
-  items = string.split(' ')
-  ret = items.shift.to_i
-  # items.each_with_index do |item, index|
-    # ret += item.to_i * 60 ** (index + 1)
-  # end
-  ret
-end
-
-
-puts duration_to_days(str)
-i = duration_to_days(str);
-
-
-# Trying to get a duration from the current day
-# puts Time.now + duration_to_days(str).days
-
-# puts DateTime.now.from_now(i)
+# $startDate + 7.days
 
 #Time play
 t = Time.now
@@ -79,28 +38,62 @@ puts day_date: t.day
 puts month: t.month
 puts hour: t.hour
 
-now = DateTime.now
-puts date_time: now.to_s
+t = Time.now
+d = t.day
+m = t.month
+y = t.year
+
+d = t.end_of_month.day
+puts day: d
+
+puts Time.days_in_month(Time.now.month, Time.now.year)
+# number_of_days = Date.civil(y, m, -1).day
+
+# puts lenDays.to_i
+
+#I NEED THIS TO DO THE THINGS
+str = "14 days"
+
+def duration_to_days(string)
+  items = string.split(' ')
+  ret = items.shift.to_i
+  ret
+end
+
+puts duration_to_days(str)
+i = duration_to_days(str);
 
 
-#days from the current day the converted str
-# fourteen = Date.new(i.days.from_now)
-# puts today >> 5
-# Date.today.prev_day
+#create 4 arrays for each set of watering times that have the name of the plant in them
 
+def sevendays()
+  i = 0;
+  str = "7 days"
+  #for each seven day plants
+  watering = $startDate + 7.days
+  # for item in $info_objects
 
-# def 7_days(int)
+  # end
+  $info_objects.each do |item|
+  #   puts "The current array item is: #{item}"
+    if $info_objects[i].water_after == str
+      puts "I am equal"
+      daysseven = []
+      
+    end
+    i += 1
+  end
+end
+
+puts sevendays
+# def 14_days()
 
 # end
 
-# def 14_days(int)
+# def 3_days()
 
 # end
 
-# def 3_days(int)
-
-# end
-
-# def 2_days(int)
+# def 2_days()
 
 # end

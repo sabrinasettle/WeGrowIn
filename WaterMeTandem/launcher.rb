@@ -4,6 +4,7 @@
 # https://stackoverflow.com/questions/4654457/how-to-add-10-days-to-current-time-in-rails
 # https://stackoverflow.com/questions/1489826/how-to-get-the-number-of-days-in-a-given-month-in-ruby-accounting-for-year
 
+# http://www.korenlc.com/nested-arrays-hashes-loops-in-ruby/
 
 
 require 'rubygems'
@@ -11,32 +12,49 @@ require 'pp'
 require 'date'
 require 'time'
 require 'json'
-require 'active_support'
+require 'ostruct'
+require 'active_support/all'
 require 'erb'
+
 
 #starts an internal server
 # require_relative 'server'
 
 require_relative 'calender'
 
-p $duration
-
 #Parse the json file into a ruby object
-info_object = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'))
+$info_objects = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'), object_class: OpenStruct)
 
-#get rid of later
-pp info_object
+pp $info_objects[0].water_after
+
+# array = [
+#   ["A", "X"],
+#   ["B", "Y"],
+#   ["C", "Z"]
+# ]
+
+# hash = array.map(&:reverse).to_h
+# puts hash["Y"]
 
 
+
+
+
+# $info_objects.each { |x| x.each { |y| puts y } }
+
+
+
+# sorted_plants = $info_object.sort_by{|plant| plant[:water_after] }
+# print sorted_plants
 
 #Rendering the partial in a regular html file
-template = File.read('./index.erb.html')
+# template = File.read('./index.erb.html')
 
-result = ERB.new(template).result(binding)
+# result = ERB.new(template).result(binding)
 
-File.open('public_html/index.html', 'w+') do |f|
-  f.write result
-end
+# File.open('public_html/index.html', 'w+') do |f|
+#   f.write result
+# end
 
 
 
