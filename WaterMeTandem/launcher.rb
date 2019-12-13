@@ -25,27 +25,9 @@ require_relative 'calender'
 #Parse the json file into a ruby object
 $info_objects = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'), object_class: OpenStruct)
 
-pp $info_objects[0].water_after
-
-# array = [
-#   ["A", "X"],
-#   ["B", "Y"],
-#   ["C", "Z"]
-# ]
-
-# hash = array.map(&:reverse).to_h
-# puts hash["Y"]
+# pp $info_objects[0].water_after
 
 
-
-
-
-# $info_objects.each { |x| x.each { |y| puts y } }
-
-
-
-# sorted_plants = $info_object.sort_by{|plant| plant[:water_after] }
-# print sorted_plants
 
 #Rendering the partial in a regular html file
 # template = File.read('./index.erb.html')

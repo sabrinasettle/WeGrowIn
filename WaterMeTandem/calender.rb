@@ -46,13 +46,14 @@ y = t.year
 d = t.end_of_month.day
 puts day: d
 
-puts Time.days_in_month(Time.now.month, Time.now.year)
 # number_of_days = Date.civil(y, m, -1).day
 
 # puts lenDays.to_i
 
 #I NEED THIS TO DO THE THINGS
-str = "14 days"
+# str = "14 days"
+# puts duration_to_days(str)
+# i = duration_to_days(str);
 
 def duration_to_days(string)
   items = string.split(' ')
@@ -60,40 +61,75 @@ def duration_to_days(string)
   ret
 end
 
-puts duration_to_days(str)
-i = duration_to_days(str);
-
-
-#create 4 arrays for each set of watering times that have the name of the plant in them
-
-def sevendays()
-  i = 0;
-  str = "7 days"
-  #for each seven day plants
-  watering = $startDate + 7.days
-  # for item in $info_objects
-
-  # end
+def startParsing
+  i = 0
   $info_objects.each do |item|
-  #   puts "The current array item is: #{item}"
-    if $info_objects[i].water_after == str
-      puts "I am equal"
-      daysseven = []
-      
-    end
+    checkWaterAfter($info_objects[i], "14 days")
+    checkWaterAfter($info_objects[i], "7 days")
+    checkWaterAfter($info_objects[i], "3 days")
+    checkWaterAfter($info_objects[i], "2 days")
     i += 1
   end
 end
 
-puts sevendays
-# def 14_days()
+def checkWaterAfter(array, str)
+  if array.water_after == str
+    numDays = duration_to_days(str)
+    fillArrays(array, numDays)
+  end
+end
 
-# end
+def fillArrays(array, int)
+  if int == 14
+    plant_ft_arr = []
+    plant_ft_arr << array.name
+    pp plant_ft_arr
+    ftDays(int)
+  end
+  if int == 7
+    plant_sev_arr = []
+    plant_sev_arr << array.name
+    pp plant_sev_arr
+    sevenDays(int)
+  end
+  if int == 3
+    plant_th_arr = []
+    plant_th_arr << array.name
+    pp plant_th_arr
+    threeDays(int)
+  end
+  if int == 2
+    plant_th_arr = []
+    plant_th_arr << array.name
+    pp plant_th_arr
+    twoDays(int)
+  end
+end
 
-# def 3_days()
+# not gonna worry about the 1 week waterings or the 2 week ones as they wont fall on a weekend
+def ftDays(int)
+  # for or while loop that while the duration of time in the main project 
+  # create dates for watering
+  # decrement down with int = whatever(14? 7?)
+  wateringDayFt = []
+#   watering = $startDate + 14.days
+end
 
-# end
 
-# def 2_days()
+def sevenDays(int)
+  wateringDaySev = []
+end
 
-# end
+
+def threeDays(int)
+  wateringDayThr = []
+end
+
+
+#these may fall on a weekend, so I can do my if d.cwday == 6 || 7 or d.saturday? d.sunday? 
+def twoDays(int)
+  wateringDayTw = []
+end
+
+
+startParsing
