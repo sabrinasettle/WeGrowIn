@@ -46,8 +46,19 @@ d = t.end_of_month.day
 # puts duration_to_days(str)
 # i = duration_to_days(str);
 
-def ifWeekend(date)
-
+def ifWeekend(array)
+  i = 0
+  array.each do |item|
+    if array[i].saturday?
+      to_Friday = array[i] - 1.days
+      array[i] = to_Friday
+    end
+    if array[i].sunday? 
+      to_Monday = array[i] + 1.days
+      array[i] = to_Monday
+    end
+    i += 1
+  end
 end
 
 # not gonna worry about the 1 week waterings or the 2 week ones as they wont fall on a weekend
@@ -60,20 +71,17 @@ def ftDays(numOf, dur)
     wateringDayFt << watering
     dur = dur - numOf
   end
-  # pp wateringDayFt
 end
-
 
 def sevenDays(numOf, dur)
   wateringDaySev = []
-  watering = $startDate #+ numOf.days
+  watering = $startDate
   wateringDaySev << watering
   while dur > 0
     watering = watering + numOf.days
     wateringDaySev << watering
     dur = dur - numOf
   end
-  # pp wateringDaySev
 end
 
 
@@ -86,13 +94,12 @@ def threeDays(numOf, dur)
     wateringDayThr << watering
     dur = dur - numOf
   end
-  # pp wateringDayThr
-  # ifWeekend(array)
+  wateringDayThr = ifWeekend(wateringDayThr).uniq
 end
 
 
 #these may fall on a weekend, so I can do my if d.cwday == 6 || 7 or d.saturday? d.sunday? 
-def twoDays(int)
+def twoDays(numOf, dur)
   wateringDayTw = []
   watering = $startDate
   wateringDayTw << watering
@@ -101,8 +108,7 @@ def twoDays(int)
     wateringDayTw << watering
     dur = dur - numOf
   end
-  pp wateringDayTw
-  # ifWeekend(date)
+  wateringDayTw = ifWeekend(wateringDayTw).uniq
 end
 
 def duration_to_days(string)
@@ -137,8 +143,6 @@ def fillArrays(array, int)
   if int == 14
     plant_ft_arr = []
     plant_ft_arr << array.name
-    # pp plant_ft_arr
-    # ftDays(int)
   end
   if int == 7
     plant_sev_arr = []
