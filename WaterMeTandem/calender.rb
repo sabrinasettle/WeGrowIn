@@ -6,9 +6,6 @@ $info_objects = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'), obj
 #get rid of later
 # pp $info_objects[1]
 
-
-#all watered on the Monday at start
-#No plants are watered on Saturday[6] or on Sunday[7] (.cwday)
 $startDate = Date.new(2019, 12, 16)
 $endDate = Date.new(2020, 3, 9)
 
@@ -22,40 +19,37 @@ $Jan = Time.days_in_month(1, 2020)
 $Feb = Time.days_in_month(2, 2020)
 $Mar = Time.days_in_month(3, 2020)
 
+# June = [*1..5]
+
 $currentDay = DateTime.now
+# p $currentDay
 
-# $startDate + 7.days
-
-#Time play
-t = Time.now
-# puts day_date: t.day
-# puts month: t.month
-# puts hour: t.hour
-
-t = Time.now
-d = t.day
-m = t.month
-y = t.year
-
-d = t.end_of_month.day
+d = Time.now.end_of_month.day
 # puts day: d
 
 
-#I NEED THIS TO DO THE THINGS
-# str = "14 days"
-# puts duration_to_days(str)
-# i = duration_to_days(str);
+
+
+Date.today.strftime("%Y%m")
+# => "201407"
+Date.today.next_month.strftime("%Y%m")
+
+month = Date.today.strftime("%B")
+p month 
+
+
+
+# All watered on the Monday at start
+# No plants are watered on Saturday or Sunday
 
 def ifWeekend(array)
   i = 0
   array.each do |item|
     if array[i].saturday?
-      to_Friday = array[i] - 1.days
-      array[i] = to_Friday
+      array[i] -= 1.days
     end
     if array[i].sunday? 
-      to_Monday = array[i] + 1.days
-      array[i] = to_Monday
+      array[i] += 1.days
     end
     i += 1
   end
@@ -84,7 +78,6 @@ def sevenDays(numOf, dur)
   end
 end
 
-
 def threeDays(numOf, dur)
   wateringDayThr = []
   watering = $startDate
@@ -109,6 +102,7 @@ def twoDays(numOf, dur)
     dur = dur - numOf
   end
   wateringDayTw = ifWeekend(wateringDayTw).uniq
+  pp wateringDayTw
 end
 
 def duration_to_days(string)

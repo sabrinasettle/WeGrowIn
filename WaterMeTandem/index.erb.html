@@ -10,6 +10,9 @@
             <h1>Hi!</h1>
             <p><%= $startDate %></p>
             <p><%= $endDate %></p>
+
+            <% @date = Date.today  %>  
+            <%= @date.strftime("%B")%>
             <% $numOfWeeks.times do |numOfWeeks| %>
                 <p>Im a week</p>
                 <% 7.times do |numOfWeeks| %> 
@@ -17,7 +20,15 @@
                     
                 <% end %>
             <% end %> 
+            <select>
+                <option value="">Choose month</option>
+                <%= 1.upto(12).each do |month| %>
+                  <option value="<%= month %>"><%= I18n.t("date.month_names")[month] %></option>
+                <% end %>
+              </select>
         </div>
     </div>
    
 </body>
+
+for each or while duration each from current start each in 
