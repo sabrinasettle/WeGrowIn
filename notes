@@ -1,0 +1,61 @@
+<% $numOfWeeks.times do |numOfWeeks| %>
+          <p>Im a week</p>
+          <% 7.times do |numOfWeeks| %> 
+              <p>Im a day</p>
+              
+          <% end %>
+      <% end %> 
+
+
+
+
+    <% @beginning_of_month = Date.civil(2019, 12, 1) %>
+         <% @end_of_month = Date.civil(2019, 12, 31) %>
+        <% (@beginning_of_month..@end_of_month).each do |d| %>
+          <% if d == @beginning_of_month %>
+            <% d.wday.times do %> 
+            <td class='offset'></td> 
+            <% end %>
+          <% end %>
+  
+            <% if d.wday == 0 %> <tr></tr> <% end %>
+            <td><%= d.day %> </td>
+       
+        <% end %>
+
+
+
+        <!-- <% $numOfMonths.times do |month| %>
+    <div class="calendar">
+      <div class="month-indicator">
+        <time datetime="2019-12"> <%= $monthTitles[month] %> </time>
+      </div>
+      <div class="day-of-week">
+        <div>Su</div>
+        <div>Mo</div>
+        <div>Tu</div>
+        <div>We</div>
+        <div>Th</div>
+        <div>Fr</div>
+        <div>Sa</div>
+      </div>
+      <div class="date-grid">
+        <% i = 1 %>
+        <% $firstDays[month]..$lastDays[month].each do |day| %>
+          <% if day == @beginning_of_month %>
+              <% day.wday.times do %> 
+              <td class='offset'></td> 
+            <% end %>
+            <% end %>
+            <% if d.wday == 0 %> <tr></tr> <% end %>
+            <td><%= d.day %></td>
+          <button>
+            <time datetime=<%= $firstDays[month].strftime("%Y-%m-%d") %>><%= day %></time>
+          </button>
+          <% $firstDays[month] += 1.days %>
+          <% i += 1 %>
+        <% end %>
+      </div>
+    </div>
+      
+    <% end %> -->

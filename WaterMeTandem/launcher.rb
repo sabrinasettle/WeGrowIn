@@ -7,6 +7,8 @@
 # http://www.korenlc.com/nested-arrays-hashes-loops-in-ruby/
 
 
+#https://stackoverflow.com/questions/3022163/how-do-i-get-name-of-the-month-in-ruby-on-rails
+
 require 'rubygems'
 require 'pp'
 require 'date'
@@ -18,25 +20,25 @@ require 'erb'
 
 
 #starts an internal server
-# require_relative 'server'
+require_relative 'server'
 
+#waterings sets up arrays of the dates to water plants
+require_relative 'waterings'
+
+#calender is info needed to create the represtation of the calender
 require_relative 'calender'
 
-#Parse the json file into a ruby object
-$info_objects = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'), object_class: OpenStruct)
-
-# pp $info_objects[0].water_after
 
 
 
 #Rendering the partial in a regular html file
-# template = File.read('./index.erb.html')
+template = File.read('./index.erb.html')
 
-# result = ERB.new(template).result(binding)
+result = ERB.new(template).result(binding)
 
-# File.open('public_html/index.html', 'w+') do |f|
-#   f.write result
-# end
+File.open('public_html/index.html', 'w+') do |f|
+  f.write result
+end
 
 
 

@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="../index.css">
 </head>
-<body>
 
-    <div class="calendar" id="calendar-app">
-        <div class="calendar--day-view" id="day-view">
-            <h1>Hi!</h1>
-            <p><%= $startDate %></p>
-            <p><%= $endDate %></p>
+<% $numOfMonths.times do |month| %>
+<events>
 
-            <% @date = Date.today  %>  
-            <%= @date.strftime("%B")%>
-            <% $numOfWeeks.times do |numOfWeeks| %>
-                <p>Im a week</p>
-                <% 7.times do |numOfWeeks| %> 
-                    <p>Im a day</p>
-                    
-                <% end %>
-            <% end %> 
-            <select>
-                <option value="">Choose month</option>
-                <%= 1.upto(12).each do |month| %>
-                  <option value="<%= month %>"><%= I18n.t("date.month_names")[month] %></option>
-                <% end %>
-              </select>
-        </div>
-    </div>
-   
-</body>
-
-for each or while duration each from current start each in 
+</events>
+<main>  
+    <div class="calendar">
+      <div class="month-indicator">
+        <time datetime= <%= $firstDays[month].strftime("%Y-%m") %>> <%= $monthTitles[month] %> </time>
+      </div>
+      <div class="day-of-week">
+        <div>Su</div>
+        <div>Mo</div>
+        <div>Tu</div>
+        <div>We</div>
+        <div>Th</div>
+        <div>Fr</div>
+        <div>Sa</div>
+      </div>
+      <div class="date-grid">
+        <% i = 1 %>
+        <% beginning_of_month = $firstDays[month] %>
+        <% end_of_month = $lastDays[month] %>
+        <% (beginning_of_month..end_of_month).each do |day| %>
+          <% if day == $firstDays[month] %>
+              <!-- <% day.wday.times do %>  -->
+              <!-- <td class='offset'></td>  -->
+              <!-- <% end %> -->
+            <% end %>
+            <% if day.wday == 0 %><% end %>
+            <!-- <td><%= day.day %></td> -->
+          <button>
+            <time datetime=<%= $firstDays[month].strftime("%Y-%m-%d") %>><%= day.day %></time>
+          </button>
+          <% $firstDays[month] += 1.days %>
+          <% i += 1 %>
+        <% end %>
+      </div>
+    </div>  
+  </main>
+<% end %>
+      
+      
+      
+      <!-- for each or while duration each from current start each in -->

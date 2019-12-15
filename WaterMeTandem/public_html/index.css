@@ -1,0 +1,91 @@
+
+html {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 125%;
+    line-height: 1.4;
+    font-weight: 400;
+    color: white;
+  }
+  
+  body {
+    min-height: 100vh;
+    background: lightgray;
+    font-family: 'Lilita One', cursive;
+  }
+  
+  main {
+    max-width: max-content;
+    margin: 3em 25em 0 auto;
+    padding: 1.5em;   
+    background-color: #fff;
+  }
+  
+  events {
+    max-width: max-content;
+    margin: 3em auto 0 25em;
+    padding: 1.5em;   
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 8px;
+  }
+
+  .month-indicator {
+    color: blueviolet;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  
+  .day-of-week,
+  .date-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+  
+  
+  .day-of-week {
+    margin-top: 1.25em;
+  }
+  
+  .day-of-week > * {
+    font-size: 0.7em;
+    color: gray;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    font-variant: small-caps;
+    text-align: center;
+  }
+  
+  .date-grid {
+    margin-top: 0.5em;
+  }
+  
+  /*Positioning the first day*/
+  .date-grid button:first-child {
+    grid-column: 6;
+  }
+  
+  
+  .date-grid button {
+    position: relative;
+    border: 0;
+    width: 4.5ch;
+    height: 4.5ch;
+    border-radius: 50%;
+    background-color: transparent;
+    color: black;
+  }
+  
+  .date-grid button:hover,
+  .date-grid button:focus {
+    outline: none;
+    background-color: gray;
+    color: white;
+  }
+  
+  .date-grid button:active,
+  .date-grid button.is-selected {
+    background-color: black;
+    color: white;
+  }
+  
