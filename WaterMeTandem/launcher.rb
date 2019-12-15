@@ -20,7 +20,7 @@ require 'erb'
 
 
 #starts an internal server
-require_relative 'server'
+# require_relative 'server'
 
 #waterings sets up arrays of the dates to water plants
 require_relative 'waterings'

@@ -8,13 +8,16 @@ $Mar = Time.days_in_month(3, 2020)
 $lenOfMonths = [$Dec, $Jan, $Feb, $Mar]
 
 $numOfMonths = 4
+pp $lenOfMonths[3]
 
 def setFirst
     base = Date.civil(2019, 12, 1)
+    secBase = Date.civil(2019, 3, 1)
     p $lastDay = base.end_of_month
+    p secBase.end_of_month
     $firstDay = base.at_beginning_of_month
 
-    # monthYear = $firstDay.strftime("%B %Y")
+  
 end
 
 # def offset(month, year) #to calculate the offset of the first week
@@ -59,18 +62,37 @@ def monthInfo
         $lastDays << $lastDay += 1.month
         $monthTitles << $firstDay.strftime("%B %Y")
     end
+    $lastDays[3] += 2.days
+
+
+    
+
 
     # YYYY-MM-DD
     
     # local_offset = offset(month, year)
     # dates = [nil] * local_offset + (1..$Dec).to_a
     # pp dates
-    # pp $monthTitles
-    # pp $firstDays
-    # pp $lastDays
+    pp $monthTitles
+    pp $firstDays
+    pp $lastDays
 end
 
 monthInfo
+
+
+# offset = 0
+    # beginning_of_month = $firstDays[0] 
+    #     end_of_month = $lastDays[0] 
+    #     (beginning_of_month..end_of_month).each do |day|
+    #     if day == $firstDays[0] 
+    #         p end_of_month.wday
+    #         end_of_month.wday.times do  
+    #             offset += 1 
+    #         end 
+    #     end 
+    # end
+    # p offset
 
 
 #This way its going over the expected array

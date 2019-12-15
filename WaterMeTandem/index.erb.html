@@ -5,40 +5,49 @@
 </head>
 
 <% $numOfMonths.times do |month| %>
-<events>
-
-</events>
+<!-- <events> -->
+    <!-- <div class="header"> -->
+        <!-- this is where I the select to input the day-->
+        <!-- <h3><%= $currentDay.strftime("%d %B %Y") %></h3> -->
+    <!-- </div> -->
+      <!-- <div class="reminders"> -->
+        <!-- <h4>Plants To Water</h4> -->
+      <!-- </div> -->
+<!-- </events> -->
 <main>  
     <div class="calendar">
       <div class="month-indicator">
-        <time datetime= <%= $firstDays[month].strftime("%Y-%m") %>> <%= $monthTitles[month] %> </time>
+        <h1><time datetime= <%= $firstDays[month].strftime("%Y-%m") %>> <%= $monthTitles[month] %> </time></h1>
       </div>
       <div class="day-of-week">
-        <div>Su</div>
-        <div>Mo</div>
-        <div>Tu</div>
-        <div>We</div>
-        <div>Th</div>
-        <div>Fr</div>
-        <div>Sa</div>
+        <div><h2>Su</h2></div>
+        <div><h2>Mo</h2></div>
+        <div><h2>Tu</h2></div>
+        <div><h2>We</h2></div>
+        <div><h2>Th</h2></div>
+        <div><h2>Fri</h2></div>
+        <div><h2>Sat</h2></div>
       </div>
       <div class="date-grid">
-        <% i = 1 %>
+        <% offset = 1 %>
         <% beginning_of_month = $firstDays[month] %>
         <% end_of_month = $lastDays[month] %>
         <% (beginning_of_month..end_of_month).each do |day| %>
+        <!-- .date-grid button:first-child { -->
+          <!-- grid-column: 1; -->
+        <!-- } -->
           <% if day == $firstDays[month] %>
-              <!-- <% day.wday.times do %>  -->
-              <!-- <td class='offset'></td>  -->
-              <!-- <% end %> -->
+              <% end_of_month.wday.times do %> 
+                <% offset += 1 %> 
+                <!-- <div style="date-grid button:first-child1: <% offset %>;"></div> -->
+              <% end %>
             <% end %>
             <% if day.wday == 0 %><% end %>
             <!-- <td><%= day.day %></td> -->
           <button>
-            <time datetime=<%= $firstDays[month].strftime("%Y-%m-%d") %>><%= day.day %></time>
+            <h2><time datetime=<%= $firstDays[month].strftime("%Y-%m-%d") %>><%= day.day %></time></h2>
           </button>
           <% $firstDays[month] += 1.days %>
-          <% i += 1 %>
         <% end %>
       </div>
     </div>  
