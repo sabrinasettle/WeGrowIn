@@ -19,8 +19,6 @@ require 'active_support/all'
 require 'erb'
 
 
-#starts an internal server
-require_relative 'server'
 
 #waterings sets up arrays of the dates to water plants
 require_relative 'waterings'
@@ -37,6 +35,8 @@ File.open('public_html/index.html', 'w+') do |f|
   f.write result
 end
 
+#starts an internal server
+require_relative 'server'
 
 
 

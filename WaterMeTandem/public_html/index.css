@@ -26,17 +26,27 @@
 }
 
 html {
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    /* font-family: "Roboto", "Helvetica", "Arial", sans-serif; */
     font-size: 125%;
     line-height: 1.4;
     font-weight: 100%;
-    color: white;
+    color: black;
   }
   
   body {
     min-height: 100vh;
     background: lightgray;
-    font-family: 'Lilita One', cursive;
+    /* font-family: 'Lilita One', cursive; */
+  }
+
+  keytab {
+    background-color: white;
+    position: fixed;
+    max-width: max-content;
+    margin: 0em 20em auto;
+    padding: 1.5em;
+    border: 2px solid darkgray;
+    border-radius: 8px; 
   }
   
   main {
@@ -45,15 +55,6 @@ html {
     padding: 1.5em;   
     background-color: white;
     border: 2px solid darkgray;
-    border-radius: 8px;
-  }
-  
-  events {
-    max-width: max-content;
-    margin: 3em auto 0 25em;
-    padding: 1.5em;   
-    background-color: #fff;
-    border: 2px solid black;
     border-radius: 8px;
   }
 
@@ -104,6 +105,29 @@ html {
     color: black;
   }
   
+  .date-grid .star {
+    font-size: 16px;
+    position: relative;
+    border: 0;
+    background-color: transparent;
+  }
+
+  .star .gstar {
+    color: limegreen;
+  }
+
+  .star .rstar {
+    color: red;
+  }
+
+  .star .bstar {
+    color: blue;
+  }
+
+  .star .ystar {
+    color: yellow;
+  }
+
   .date-grid button:hover,
   .date-grid button:focus {
     outline: none;

@@ -13,6 +13,9 @@ chmod u+x launcher.rb
 ```
 On running ./launcher.rb, a server will run at localhost:8000, so head there to see the results!
 
+Please use Ctrl C to close the server when done or else it will keep running on that port!
+
 ## On the Front End 
 
 The front end interacts with the ruby back end by using a index.erb.html and then copying that info over to a index.html
+

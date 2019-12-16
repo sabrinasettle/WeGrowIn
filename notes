@@ -83,3 +83,71 @@
               <!-- <% if day.wday == 0 %>
               <%= offset = 0 %> 
             <% else %> -->
+
+
+
+
+
+            <% $wateringDayFt.each do |item| %> 
+              <% item.strftime("%Y-%m-%d") %>
+                <% if item.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %>
+                  <button style="background-color: green;"> <h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+                <% end %>
+            <% end %> 
+            <% $wateringDaySev.each do |item| %> 
+              <% item.strftime("%Y-%m-%d") %>
+                <% if item.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %>
+                <button style="background-color: green;"> <h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+                <% end %>
+            <% end %> 
+            <% $wateringDayThr.each do |item| %> 
+              <% item.strftime("%Y-%m-%d") %>
+                <% if item.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %>
+                <button style="background-color: green;"> <h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+                <% end %>
+            <% end %> 
+            <% $wateringDayTw.each do |item| %> 
+              <% item.strftime("%Y-%m-%d") %>
+                <% if item.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %>
+                <button style="background-color: green;"> <h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+                <% end %>
+            <% end %> 
+
+
+
+            <%if $currentDay.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %>
+              <button style="border: 2px solid black"><h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+            <%else %>
+              <% $allWaterings.each do |item| %>
+                <% item.strftime("%Y-%m-%d") %>
+                  <% if item.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %>
+                    <%if $currentDay.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %>
+                      <button style="background-color: green; border: 2px solid black"><h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+                    <% else %>
+                      <button style="background-color: green;"> <h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+                    <% end %>
+                  <% end %>
+              <% end %>
+              <button><h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+            <% end %>
+
+            <!-- <% end %> -->
+                  <!-- <% else %>
+                    <%if $currentDay.strftime("%Y-%m-%d") != $beginning.strftime("%Y-%m-%d") %>
+                      <button style="border: 2px solid black"><h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2></button>
+                    <% end %> -->
+
+                     <!-- <%if $currentDay.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %> -->
+
+
+
+
+           <% $wateringDayTw.each do |item| %> 
+                  <% item.strftime("%Y-%m-%d") %>
+                    <% if item.strftime("%Y-%m-%d") == $beginning.strftime("%Y-%m-%d") %>
+                    <div class='bstar'><p>*</p></div>
+                    <% end %>
+                <% end %> 
+
+
+        
