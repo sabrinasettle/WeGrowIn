@@ -71,3 +71,15 @@
             <!-- <% end %> -->
             <% if day.wday == 0 %><% end %>
             <!-- <td><%= day.day %></td> -->
+
+
+            <% endOf.wday.times do %>  
+              <p><%= offset = endOf.wday %> </p>
+              <% end %>
+
+
+
+
+              <!-- <% if day.wday == 0 %>
+              <%= offset = 0 %> 
+            <% else %> -->

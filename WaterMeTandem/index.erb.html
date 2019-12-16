@@ -5,15 +5,7 @@
 </head>
 
 <% $numOfMonths.times do |month| %>
-<!-- <events> -->
-    <!-- <div class="header"> -->
-        <!-- this is where I the select to input the day-->
-        <!-- <h3><%= $currentDay.strftime("%d %B %Y") %></h3> -->
-    <!-- </div> -->
-      <!-- <div class="reminders"> -->
-        <!-- <h4>Plants To Water</h4> -->
-      <!-- </div> -->
-<!-- </events> -->
+
 <main>
 
     <div class="calendar">
@@ -30,10 +22,20 @@
         <div><h2>Sat</h2></div>
       </div>
       <div class="date-grid">
-        <% offset = 1 %>
-        <% $beginning = $firstDays[month] %>
-        <% endOf = $lastDays[month] %>
+          <% offset = 0 %>
+          <% $beginning = $firstDays[month] %>
+          <% endOf = $lastDays[month] %>
         <% ($beginning..endOf).each do |day| %>
+          <% if day == $firstDays[month] %>
+            <% if day.wday == 0 %>
+              <% offset = 0 %> 
+            <% else %>
+            <% offset = $beginning.wday %>
+            <% offset.times do %> 
+              <p> </p>
+              <% end %>
+            <% end %> 
+          <% end %>
           <button>
             <h2><time datetime=<%= $beginning.strftime("%Y-%m-%d") %>><%= day.day %></time></h2>
            <%= $beginning %>
@@ -43,21 +45,7 @@
                 <p>*</p>
               <% end %>
            <% end %> 
-            <% if $wateringDaySev == $beginning %>
-              <p>*</p>
-            <% end %>
-            <% if $wateringDayThr == $beginning %>
-              <p>*</p>
-            <% end %>
-            <% if $wateringDayTw == $beginning %>
-              <p>*</p>
-            <% end %>
           </button>
-          <% if day == $firstDays[month] %> 
-              <% endOf.wday.times do %>  
-                <% offset += 1 %> 
-              <% end %>
-            <% end %>
           <% $beginning += 1.days %>
         <% end %>
       </div>
@@ -67,4 +55,4 @@
       
       
       
-      <!-- for each or while duration each from current start each in -->
+  
