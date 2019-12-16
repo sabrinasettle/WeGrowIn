@@ -20,7 +20,7 @@ require 'erb'
 
 
 #starts an internal server
-# require_relative 'server'
+require_relative 'server'
 
 #waterings sets up arrays of the dates to water plants
 require_relative 'waterings'
@@ -28,10 +28,7 @@ require_relative 'waterings'
 #calender is info needed to create the represtation of the calender
 require_relative 'calender'
 
-
-
-
-#Rendering the partial in a regular html file
+#Rendering the ERB partial in a regular html file for rendering
 template = File.read('./index.erb.html')
 
 result = ERB.new(template).result(binding)

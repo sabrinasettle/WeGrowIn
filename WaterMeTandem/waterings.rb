@@ -93,7 +93,12 @@ end
 
 def startParsing
   i = 0
+  $plant_ft_arr = []
+  $plant_sev_arr = []
+  $plant_th_arr = []
+  $plant_tw_arr = []
   $info_objects.each do |item|
+    
     checkWaterAfter($info_objects[i], "14 days")
     checkWaterAfter($info_objects[i], "7 days")
     checkWaterAfter($info_objects[i], "3 days")
@@ -107,32 +112,25 @@ def startParsing
 end
 
 def checkWaterAfter(array, str)
+  numDays = duration_to_days(str)
   if array.water_after == str
-    numDays = duration_to_days(str)
-    array.each do |item|
       fillArrays(array, numDays)
-    end
   end
 end
 
 def fillArrays(array, int)
-  if int == 14
-    $plant_ft_arr = []
-    $plant_ft_arr << array.name
-  end
-  if int == 7
-    $plant_sev_arr = []
-    $plant_sev_arr << array.name
-  end
-  if int == 3
-    $plant_th_arr = []
-    $plant_th_arr << array.name
-  end
-  if int == 2
-    $plant_tw_arr = []
-    $plant_tw_arr << array.name
-  end
+    if int == 14
+        $plant_ft_arr << array.name
+    end
+    if int == 7
+      $plant_sev_arr << array.name
+    end
+    if int == 3
+      $plant_th_arr << array.name
+    end
+    if int == 2
+      $plant_tw_arr << array.name
+    end
 end
-
 
 startParsing

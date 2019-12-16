@@ -61,3 +61,13 @@
     <% end %> -->
 
     #march not printing all days
+
+
+    <!-- <% if day == $firstDays[month] %> -->
+              <!-- <% end.wday.times do %>  -->
+                <!-- <% offset += 1 %>  -->
+                <!-- <div style="date-grid button:first-child1: <% offset %>;"></div> -->
+              <!-- <% end %> -->
+            <!-- <% end %> -->
+            <% if day.wday == 0 %><% end %>
+            <!-- <td><%= day.day %></td> -->

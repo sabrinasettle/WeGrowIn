@@ -43,7 +43,9 @@ html {
     max-width: max-content;
     margin: 3em 25em 0 auto;
     padding: 1.5em;   
-    background-color: #fff;
+    background-color: rgb(161, 161, 161);
+    border: 2px solid darkgray;
+    border-radius: 8px;
   }
   
   events {

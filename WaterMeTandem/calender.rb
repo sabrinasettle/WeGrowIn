@@ -8,17 +8,62 @@ $Mar = Time.days_in_month(3, 2020)
 $lenOfMonths = [$Dec, $Jan, $Feb, $Mar]
 
 $numOfMonths = 4
-pp $lenOfMonths[3]
+# pp $lenOfMonths[3]
+
+# Arrays of Dates for the palnts to be watered on
+$wateringDayFt
+$wateringDaySev
+$wateringDayThr
+$wateringDayTw
+
+# Arrays of the palnt names determined by their watering duration
+$plant_ft_arr
+$plant_sev_arr
+$plant_th_arr
+$plant_tw_arr
+
+pp $wateringDayFt
+
+
+
+
+            
+# date = Date.civil(2019, 12, 16).strftime("%Y-%m-%d")
+
+# def createEvent(date)
+#     # p date
+#     day = date.to_date
+#     for i in $wateringDayFt
+#        if day == i
+#         p day
+#        end
+#     end
+#     for i in $wateringDaySev
+#         if day == i
+#          p day
+#         end
+#      end
+#      for i in $wateringDayThr
+#         if day == i
+#          p day
+#         end
+#      end
+#      for i in $wateringDayTw
+#         if day == i
+#          p day
+#         end
+#      end
+#     # p day
+# end
+
+# createEvent(date)
 
 def setFirst
     base = Date.civil(2019, 12, 1)
-    secBase = Date.civil(2019, 3, 1)
-    p $lastDay = base.end_of_month
-    p secBase.end_of_month
+    $lastDay = base.end_of_month
     $firstDay = base.at_beginning_of_month
-
-  
 end
+
 
 # def offset(month, year) #to calculate the offset of the first week
 #     start = Date.new(year, month).wday
@@ -73,14 +118,16 @@ def monthInfo
     # local_offset = offset(month, year)
     # dates = [nil] * local_offset + (1..$Dec).to_a
     # pp dates
-    pp $monthTitles
-    pp $firstDays
-    pp $lastDays
+    # pp $monthTitles
+    # pp $firstDays
+    # pp $lastDays
 end
 
 monthInfo
 
 
+
+# Test for erb
 # offset = 0
     # beginning_of_month = $firstDays[0] 
     #     end_of_month = $lastDays[0] 
@@ -126,16 +173,3 @@ d = Time.now.end_of_month.day
 Date.today.strftime("%Y%m")
 # => "201407"
 # p Date.today.next_month.strftime("%B")
-
-
-$wateringDayFt
-# pp $plant_ft_arr
-
-$wateringDaySev
-# pp $plant_sev_arr
-
-$wateringDayThr
-# $plant_th_arr
-
-$wateringDayTw
-# $plant_tw_arr
