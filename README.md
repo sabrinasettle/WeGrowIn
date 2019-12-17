@@ -7,7 +7,7 @@ The project is a Ruby app, using a ERB partial as the front end.
 To install Ruby, I used Homebrew and I recommend that if you do not already have it.
 
 ## Running the project
-The Project can be run with ./launcher.rb, and if not that may mean its permissions have change so the command will change that.
+Head into the WaterMeTandem directory and from there the project can be run with ./launcher.rb, and if not that may mean its permissions have change so the command will change that.
 ```bash
 chmod u+x launcher.rb
 ```

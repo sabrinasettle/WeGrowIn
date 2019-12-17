@@ -9,7 +9,6 @@ $Mar = Time.days_in_month(3, 2020)
 $lenOfMonths = [$Dec, $Jan, $Feb, $Mar]
 
 $numOfMonths = 4
-# pp $lenOfMonths[3]
 
 # Arrays of Dates for the palnts to be watered on
 $wateringDayFt
@@ -18,14 +17,10 @@ $wateringDayThr
 $wateringDayTw
 
 # Arrays of the palnt names determined by their watering duration
-$plant_ft_arr
-$plant_sev_arr
-$plant_th_arr
-$plant_tw_arr
-
-
-$allWaterings = $wateringDayFt | $wateringDaySev | $wateringDayThr | $wateringDayTw
-
+$plantsFtArr 
+$plantsSevArr 
+$plantsThArr
+$plantsTwArr
 
 def setFirst
     base = Date.civil(2019, 12, 1)

@@ -1,14 +1,5 @@
 #!/usr/bin/env ruby
 
-# https://stackoverflow.com/questions/25489804/creating-an-html-file-with-ruby
-# https://stackoverflow.com/questions/4654457/how-to-add-10-days-to-current-time-in-rails
-# https://stackoverflow.com/questions/1489826/how-to-get-the-number-of-days-in-a-given-month-in-ruby-accounting-for-year
-
-# http://www.korenlc.com/nested-arrays-hashes-loops-in-ruby/
-
-
-#https://stackoverflow.com/questions/3022163/how-do-i-get-name-of-the-month-in-ruby-on-rails
-
 require 'rubygems'
 require 'pp'
 require 'date'
@@ -17,8 +8,6 @@ require 'json'
 require 'ostruct'
 require 'active_support/all'
 require 'erb'
-
-
 
 #waterings sets up arrays of the dates to water plants
 require_relative 'waterings'

@@ -1,23 +1,13 @@
-#Parse the json file into a ruby object
-# $info_objects = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'), object_class: OpenStruct)
-
-# pp $info_objects[0].water_after
-
-
-
 
 # The array is nested, so it parsed into two seprate types of arrays later, the names of names assoicated with durations 
 # and multiple arrarys containing the dates for watering for each duration.
 $info_objects = JSON.parse(File.read('Apprentice_WeGrowInTandem_Data.json'), object_class: OpenStruct)
 
-#get rid of later
-# pp $info_objects[1]
 
 $startDate = Date.new(2019, 12, 16)
 $endDate = Date.new(2020, 3, 9)
 
 days = $endDate - $startDate
-# days.class
 $duration = days.to_i
 
 
@@ -93,12 +83,11 @@ end
 
 def startParsing
   i = 0
-  $plant_ft_arr = []
-  $plant_sev_arr = []
-  $plant_th_arr = []
-  $plant_tw_arr = []
+  $plantsFtArr = []
+  $plantsSevArr = []
+  $plantsThArr = []
+  $plantsTwArr = []
   $info_objects.each do |item|
-    
     checkWaterAfter($info_objects[i], "14 days")
     checkWaterAfter($info_objects[i], "7 days")
     checkWaterAfter($info_objects[i], "3 days")
@@ -120,16 +109,16 @@ end
 
 def fillArrays(array, int)
     if int == 14
-        $plant_ft_arr << array.name
+        $plantsFtArr << array.name
     end
     if int == 7
-      $plant_sev_arr << array.name
+      $plantsSevArr << array.name
     end
     if int == 3
-      $plant_th_arr << array.name
+      $plantsThArr << array.name
     end
     if int == 2
-      $plant_tw_arr << array.name
+      $plantsTwArr << array.name
     end
 end
 
