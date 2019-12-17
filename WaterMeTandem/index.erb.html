@@ -16,14 +16,26 @@
         <h2> Today's Date: </h2>
         <h2><%= $currentDay.strftime("%d %B %Y") %></h2>
       </div>
-      <% if $currentDay %>
       <div class="watering">
-        <h2><u> Please Water Me Today! </u></h2>
+        <% if $currentDay %> 
+          <% i = 0 %>
+            <% $allWaterings.uniq.each do |item| %> 
+            <% item.strftime("%Y-%m-%d") %>
+              <% if item.strftime("%Y-%m-%d") == $currentDay.strftime("%Y-%m-%d") %>
+                  <% i = 1 %>
+              <% end %>
+            <% end %> 
+          <% if i == 1 %> 
+            <h2><u>Please Water Me Today!</u></h2> 
+          <% else %>
+            <h2><u>Nothing To Water Today!</u></h2>
+          <% end %>
           <% $wateringDayFt.each do |item| %> 
           <% item.strftime("%Y-%m-%d") %>
             <% if item.strftime("%Y-%m-%d") == $currentDay.strftime("%Y-%m-%d") %>
               <% $plantsFtArr.each do |item| %>
-              <p><%= item %></p>
+                <p><%= item %></p>
+                <% i = 1 %>
               <% end %>
             <% end %>
           <% end %> 
@@ -31,7 +43,8 @@
             <% item.strftime("%Y-%m-%d") %>
               <% if item.strftime("%Y-%m-%d") == $currentDay.strftime("%Y-%m-%d") %>
                 <% $plantsSevArr.each do |item| %>
-                <p><%= item %></p>
+                  <p><%= item %></p>
+                  <% i = 1 %>
                 <% end %>
               <% end %>
           <% end %> 
@@ -40,6 +53,7 @@
               <% if item.strftime("%Y-%m-%d") == $currentDay.strftime("%Y-%m-%d") %>
                 <% $plantsThArr.each do |item| %>
                     <p><%= item %></p>
+                    <% i = 1 %>
                 <% end %>
               <% end %>
           <% end %> 
@@ -47,16 +61,13 @@
             <% item.strftime("%Y-%m-%d") %>
               <% if item.strftime("%Y-%m-%d") == $currentDay.strftime("%Y-%m-%d") %>
                 <% $plantsTwArr.each do |item| %>
-                <p><%= item %></p>
+                  <p><%= item %></p>
+                  <% i = 1 %>
                 <% end %>
               <% end %>
           <% end %> 
-      </div>
-      <% else %>
-      <div class="watering">
-          <h2><u> Nothing To Water Today! </u></h2>
-      </div>
       <% end %>
+      </div>
 
     
     <h3> Plants to water are color coded! </h3>

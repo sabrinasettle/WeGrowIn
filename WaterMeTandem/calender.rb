@@ -10,6 +10,8 @@ $lenOfMonths = [$Dec, $Jan, $Feb, $Mar]
 
 $numOfMonths = 4
 
+$allWaterings = $wateringDayFt | $wateringDaySev | $wateringDayThr | $wateringDayTw
+
 # Arrays of Dates for the palnts to be watered on
 $wateringDayFt
 $wateringDaySev

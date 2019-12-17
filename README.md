@@ -4,7 +4,10 @@ A Small Project for the Tandem Application
 The project is a Ruby app, using a ERB partial as the front end.
 
 ## Install Ruby if needed
-To install Ruby, I used Homebrew and I recommend that if you do not already have it.
+To install Ruby, I used Homebrew and I recommend that if you do not already have it. To update Ruby, using Brew, use the command:
+```bash
+brew upgrade ruby
+```
 
 ## Running the project
 Head into the WaterMeTandem directory and from there the project can be run with ./launcher.rb, and if not that may mean its permissions have change so the command will change that.
