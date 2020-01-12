@@ -22,3 +22,6 @@ Please use Ctrl C to close the server when done or else it will keep running on 
 
 The front end interacts with the ruby back end by using a index.erb.html and then copying that info over to a index.html
 
+## Also
+
+I fixed a front issue with the CSS, on the 12th of January, because I finally tried my project on my laptop and a bug was pretty clear and in the way of useability. So the old CSS file is included in the project but is not in use, just in case you would like you see or discuss.

@@ -1,4 +1,5 @@
 html {
+    font-size: 125%;
     line-height: 1.4;
     font-weight: 100%;
     color: black;
@@ -15,18 +16,17 @@ html {
     position: fixed;
     max-width: max-content;
     min-width: max-content;
-    margin: 0 0 0 80px;
+    margin: 0 0 0 20vw;
     padding: 1.5em;
     border: 2px solid darkgray;
     border-radius: 8px; 
-    float: left;
   }
   
   main {
     font-family: 'Fira Sans', sans-serif;
     max-width: max-content;
     min-width: max-content;
-    margin: 5vh 0 5vh 500px;
+    margin: 5vh 0 5vh 50vw;
     padding: 1.5em;   
     background-color: white;
     border: 2px solid darkgray;
@@ -57,7 +57,7 @@ html {
   }
 
   li {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   h4 {
@@ -98,8 +98,8 @@ html {
   .date-grid button {
     position: relative;
     border: 0;
-    width: 12.5ch;
-    height: 12.5ch;
+    width: 15.5ch;
+    height: 15.5ch;
     border-radius: 50%;
     background-color: transparent;
     color: black;
