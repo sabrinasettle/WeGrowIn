@@ -13,7 +13,7 @@
 
   <keytab>
       <div class="month-indicator">
-        <h2> Today's Date: </h2>
+        <h3> Today's Date: </h3>
         <h2><%= $currentDay.strftime("%d %B %Y") %></h2>
       </div>
       <div class="watering">
@@ -26,9 +26,9 @@
               <% end %>
             <% end %> 
           <% if i == 1 %> 
-            <h2><u>Please Water Me Today!</u></h2> 
+            <h3><u>Please Water Me Today!</u></h3> 
           <% else %>
-            <h2><u>Nothing To Water Today!</u></h2>
+            <h3><u>Nothing To Water Today!</u></h3>
           <% end %>
           <% $wateringDayFt.each do |item| %> 
           <% item.strftime("%Y-%m-%d") %>
